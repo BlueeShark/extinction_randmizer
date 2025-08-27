@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Extinction Roulette</title>
+</head>
+
+<body>
+  <header>
+    <h1>Extinction Roulette</h1>
+  </header>
+
+  <main>
+    <div class="controls">
+      <label for="maxReliques">Nombre max de reliques (0 à 10) :</label>
+      <input type="number" id="maxReliques" min="0" max="10" value="3">
+      <div class="options">
+        <label>
+          <input type="checkbox" id="doubleClasse">
+          Double Classe (2 classes)
+        </label>
+        <br>
+        <label>
+          <input type="checkbox" id="hasCryptidAmmo" checked>
+          Munitions Cryptides débloquées
+        </label>
+      </div>
+
+    </div>
+
+    <button id="randomButton" class="main-button">Créer une partie</button>
+
+    <section id="resultat">
+      <h2>Équipement généré :</h2>
+      <ul id="randomLoadout"></ul>
+    </section>
+  </main>
+
+</body>
+
+</html>
