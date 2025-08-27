@@ -45,7 +45,6 @@ const reliques = [
   "10 Gagne ta croûte",
 ];
 
-// --- Fonctions utilitaires ---
 function randomItem(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -64,10 +63,8 @@ function generateRandomLoadout() {
   const doubleClasse = document.getElementById("doubleClasse").checked;
   const hasCryptidAmmo = document.getElementById("hasCryptidAmmo").checked;
 
-  // 🔫 Choix pistolet
   const pistolet = randomItem(extinctionCustomization.pistolets);
 
-  // 🎓 Classes (1 ou 2 selon boost)
   let classe;
   if (doubleClasse) {
     classe = randomUniqueItems(extinctionCustomization.classe, 2).join(" + ");
@@ -75,7 +72,6 @@ function generateRandomLoadout() {
     classe = randomItem(extinctionCustomization.classe);
   }
 
-  // 💥 Munitions (exclure Cryptides si non débloqué)
   const ammoPool = hasCryptidAmmo
     ? extinctionCustomization.munitions
     : extinctionCustomization.munitions.filter(
@@ -83,12 +79,10 @@ function generateRandomLoadout() {
       );
   const munitions = randomItem(ammoPool);
 
-  // 🔧 Autres équipements
   const soutien = randomItem(extinctionCustomization.soutien);
   const package = randomItem(extinctionCustomization.package);
   const egaliseur = randomItem(extinctionCustomization.egaliseur);
 
-  // 🎭 Reliques
   let maxReliques = parseInt(document.getElementById("maxReliques").value, 10);
   if (isNaN(maxReliques) || maxReliques < 0) maxReliques = 0;
   if (maxReliques > 10) maxReliques = 10;
@@ -108,7 +102,7 @@ function generateRandomLoadout() {
 
 function displayLoadoutAnimated(loadout) {
   const ul = document.getElementById("randomLoadout");
-  ul.innerHTML = ""; // vide avant affichage
+  ul.innerHTML = "";
 
   for (const [key, value] of Object.entries(loadout)) {
     if (key === "reliques") {
